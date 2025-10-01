@@ -1,0 +1,17 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python ./python/arith_algorithms.py --width 8 --trials 400 verify
+      - run: python ./python/arith_algorithms.py --width 16 --signed --trials 200 verify
