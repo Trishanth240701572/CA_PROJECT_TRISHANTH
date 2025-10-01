@@ -13,5 +13,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: python ./python/arith_algorithms.py --width 8 --trials 400 verify
-      - run: python ./python/arith_algorithms.py --width 16 --signed --trials 200 verify
+      - run: python ./python/arith_algorithms.py --width 8 --trials 400 --algo verify
+      - run: python ./python/arith_algorithms.py --width 16 --signed --trials 200 --algo verify
